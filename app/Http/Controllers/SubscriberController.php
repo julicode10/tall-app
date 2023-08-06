@@ -7,6 +7,13 @@ use App\Models\Subscriber;
 
 class SubscriberController extends Controller
 {
+    public function all()
+    {
+        return view('subscribers.all')->with([
+            'subscribers' => Subscriber::all(),
+        ]);
+    }
+
     public function verify(Subscriber $subscriber)
     {
         if(!$subscriber->hasVerifiedEmail())
